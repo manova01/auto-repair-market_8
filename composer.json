@@ -2,6 +2,7 @@
   "name": "rudzz/auto-repair-marketplace",
   "description": "Rudzz Auto Repair Marketplace - Connect with trusted auto repair professionals",
   "type": "project",
+  "license": "proprietary",
   "require": {
     "php": ">=7.4",
     "twilio/sdk": "^6.37",
