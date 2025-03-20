@@ -94,7 +94,6 @@ jobs:
           rsync -av --exclude='tests/' --exclude='.github/' --exclude='vendor/' . deployment/
           cp -r vendor deployment/
 
-
       - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
