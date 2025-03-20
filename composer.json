@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Rudzz\\": "src/"
+      "Rudzz\\": "api/config/"
     }
   },
   "autoload-dev": {
@@ -28,15 +28,10 @@
   "scripts": {
     "test": "phpunit",
     "cs": "phpcs",
-    "cs-fix": "phpcbf",
-    "post-autoload-dump": [
-      "@php -r \"echo 'Autoloader optimized!\\n';\""
-    ]
+    "cs-fix": "phpcbf"
   },
   "config": {
     "sort-packages": true,
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "platform-check": true
+    "optimize-autoloader": true
   }
 }
