@@ -1,0 +1,28 @@
+name: Post-Deployment Tasks
+
+on:
+  workflow_run:
+    workflows: ["Rudzz CI/CD Pipeline"]
+    types:
+      - completed
+    branches: [main]
+
+jobs:
+  post-deploy:
+    name: Run Post-Deployment Tasks
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
+    steps:
+      - name: Execute post-deployment script via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.CPANEL_SSH_HOST }}
+          username: ${{ secrets.CPANEL_SSH_USERNAME }}
+          password: ${{ secrets.CPANEL_SSH_PASSWORD }}
+          port: ${{ secrets.CPANEL_SSH_PORT }}
+          script: |
+            cd ${{ secrets.CPANEL_SERVER_DIR }}
+            php deploy/post-deploy.php
+            php deploy/deploy.php
+

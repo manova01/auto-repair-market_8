@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Auto Repair Services - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html" class="active">Find Services</a></li>
+                        <li><a href="providers.html">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Find Auto Repair Services</h1>
+                <p>Browse trusted auto repair professionals in your area</p>
+            </div>
+
+            <div class="listings-container">
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="card">
+                        <h2>Filters</h2>
+                        
+                        <div class="filter-group">
+                            <label for="service-type">Service Type</label>
+                            <select id="service-type" class="form-control">
+                                <option value="">All Services</option>
+                                <option value="engine">Engine Repair</option>
+                                <option value="brakes">Brake Service</option>
+                                <option value="oil">Oil Change</option>
+                                <option value="tires">Tire Service</option>
+                                <option value="body">Body Work</option>
+                                <option value="electrical">Auto Electrical</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="rating">Minimum Rating</label>
+                            <select id="rating" class="form-control">
+                                <option value="0">Any Rating</option>
+                                <option value="3">3+ Stars</option>
+                                <option value="4">4+ Stars</option>
+                                <option value="4.5">4.5+ Stars</option>
+                                <option value="5">5 Stars</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="distance">Distance</label>
+                            <select id="distance" class="form-control">
+                                <option value="5">Within 5 miles</option>
+                                <option value="10">Within 10 miles</option>
+                                <option value="25" selected>Within 25 miles</option>
+                                <option value="50">Within 50 miles</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Features</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features" value="certified">
+                                    Certified Mechanics
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features" value="warranty">
+                                    Warranty Offered
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features" value="emergency">
+                                    Emergency Service
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features" value="pickup">
+                                    Pickup/Dropoff
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button id="apply-filters" class="btn btn-primary">Apply Filters</button>
+                        <button id="reset-filters" class="btn btn-outline">Reset</button>
+                    </div>
+                    
+                    <div class="card map-card">
+                        <h2>Map View</h2>
+                        <div id="listings-map" class="listings-map"></div>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div class="results">
+                    <div class="results-header">
+                        <div class="results-count">
+                            <p><strong>24</strong> repair shops found</p>
+                        </div>
+                        <div class="results-sort">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by" class="form-control">
+                                <option value="relevance">Relevance</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="distance">Nearest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="provider-cards">
+                        <!-- Provider Card 1 -->
+                        <div class="provider-card">
+                            <div class="provider-card-image">
+                                <img src="images/provider1.jpg" alt="Mike's Auto Repair">
+                                <span class="distance">1.2 miles</span>
+                            </div>
+                            <div class="provider-card-content">
+                                <div class="provider-card-header">
+                                    <h3>Mike's Auto Repair</h3>
+                                    <div class="provider-card-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span>4.8 (124)</span>
+                                    </div>
+                                </div>
+                                <div class="provider-card-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>123 Main St, San Francisco, CA</span>
+                                </div>
+                                <div class="provider-card-services">
+                                    <span class="service-tag">Engine Repair</span>
+                                    <span class="service-tag">Brake Service</span>
+                                    <span class="service-tag">Oil Change</span>
+                                    <span class="service-tag">+5 more</span>
+                                </div>
+                                <div class="provider-card-footer">
+                                    <a href="provider-profile.html?id=1" class="btn btn-outline btn-sm">View Profile</a>
+                                    <a href="tel:555-123-4567" class="btn btn-primary btn-sm">Call Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Provider Card 2 -->
+                        <div class="provider-card">
+                            <div class="provider-card-image">
+                                <img src="images/provider2.jpg" alt="AutoFix Pro">
+                                <span class="distance">2.5 miles</span>
+                            </div>
+                            <div class="provider-card-content">
+                                <div class="provider-card-header">
+                                    <h3>AutoFix Pro</h3>
+                                    <div class="provider-card-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>5.0 (87)</span>
+                                    </div>
+                                </div>
+                                <div class="provider-card-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>456 Oak St, San Francisco, CA</span>
+                                </div>
+                                <div class="provider-card-services">
+                                    <span class="service-tag">Body Work</span>
+                                    <span class="service-tag">Auto Electrical</span>
+                                    <span class="service-tag">Tire Service</span>
+                                    <span class="service-tag">+3 more</span>
+                                </div>
+                                <div class="provider-card-footer">
+                                    <a href="provider-profile.html?id=2" class="btn btn-outline btn-sm">View Profile</a>
+                                    <a href="tel:555-987-6543" class="btn btn-primary btn-sm">Call Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Provider Card 3 -->
+                        <div class="provider-card">
+                            <div class="provider-card-image">
+                                <img src="images/provider3.jpg" alt="Quick Auto Service">
+                                <span class="distance">3.7 miles</span>
+                            </div>
+                            <div class="provider-card-content">
+                                <div class="provider-card-header">
+                                    <h3>Quick Auto Service</h3>
+                                    <div class="provider-card-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span>4.0 (56)</span>
+                                    </div>
+                                </div>
+                                <div class="provider-card-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>789 Pine St, San Francisco, CA</span>
+                                </div>
+                                <div class="provider-card-services">
+                                    <span class="service-tag">Oil Change</span>
+                                    <span class="service-tag">Brake Service</span>
+                                    <span class="service-tag">AC Service</span>
+                                    <span class="service-tag">+2 more</span>
+                                </div>
+                                <div class="provider-card-footer">
+                                    <a href="provider-profile.html?id=3" class="btn btn-outline btn-sm">View Profile</a>
+                                    <a href="tel:555-456-7890" class="btn btn-primary btn-sm">Call Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <span class="pagination-ellipsis">...</span>
+                        <button class="pagination-btn">8</button>
+                        <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rudzz Auto</h3>
+                    <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Customers</h3>
+                    <ul>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                        <li><a href="safety-tips.html">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Service Providers</h3>
+                    <ul>
+                        <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                        <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/listings.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Profile - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="providers.html" class="active">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Cover Image -->
+        <div class="cover-image">
+            <img src="images/cover-placeholder.jpg" alt="Mike's Auto Repair cover">
+        </div>
+
+        <div class="container">
+            <!-- Provider Info -->
+            <div class="provider-info">
+                <div class="provider-avatar">
+                    <img src="images/avatar-placeholder.jpg" alt="Mike's Auto Repair">
+                </div>
+
+                <div class="provider-details">
+                    <div class="provider-name">
+                        <h1>Mike's Auto Repair</h1>
+                        <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                    </div>
+
+                    <div class="provider-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-score">4.8</span>
+                        <span class="review-count">(124 reviews)</span>
+                    </div>
+
+                    <div class="provider-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Main St, San Francisco, CA 94105</span>
+                    </div>
+                </div>
+
+                <div class="provider-actions">
+                    <a href="tel:555-123-4567" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="messages.html?provider=1" class="btn btn-outline">
+                        <i class="fas fa-comment"></i> Message
+                    </a>
+                    <a href="booking.html?provider=1" class="btn btn-outline">
+                        <i class="fas fa-calendar"></i> Book Appointment
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="provider-content">
+                <!-- Left Column -->
+                <div class="provider-main">
+                    <!-- About -->
+                    <section class="card">
+                        <h2>About</h2>
+                        <p>With over 15 years of experience, we provide top-quality auto repair services for all makes and models. Our certified technicians use the latest diagnostic equipment to ensure your vehicle is repaired correctly the first time.</p>
+                    </section>
+
+                    <!-- Services -->
+                    <section class="card">
+                        <h2>Services</h2>
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>Engine Repair</h3>
+                                    <p>$150-$500</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>Brake Service</h3>
+                                    <p>$80-$250</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>Oil Change</h3>
+                                    <p>$40-$80</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>Tire Replacement</h3>
+                                    <p>$60-$200 per tire</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>Wheel Alignment</h3>
+                                    <p>$80-$120</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h3>AC Service</h3>
+                                    <p>$100-$300</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Reviews -->
+                    <section class="card">
+                        <div class="section-header">
+                            <h2>Reviews</h2>
+                            <button class="btn btn-outline btn-sm" id="write-review-btn">Write a Review</button>
+                        </div>
+
+                        <div id="review-form-container" style="display: none;">
+                            <form id="review-form" class="review-form">
+                                <div class="form-group">
+                                    <label class="form-label">Your Rating</label>
+                                    <div class="rating-input">
+                                        <input type="radio" id="star5" name="rating" value="5" required>
+                                        <label for="star5"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star4" name="rating" value="4">
+                                        <label for="star4"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star3" name="rating" value="3">
+                                        <label for="star3"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star2" name="rating" value="2">
+                                        <label for="star2"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star1" name="rating" value="1">
+                                        <label for="star1"><i class="fas fa-star"></i></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment" class="form-label">Your Review</label>
+                                    <textarea id="comment" name="comment" class="form-control" rows="4" required></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                                    <button type="button" id="cancel-review" class="btn btn-outline">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <h3>John D.</h3>
+                                    <span>2 weeks ago</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>Great service! They fixed my car quickly and at a reasonable price. Would definitely recommend.</p>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <h3>Sarah M.</h3>
+                                    <span>1 month ago</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p>Professional and knowledgeable staff. They explained everything clearly before starting the work.</p>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <h3>Robert L.</h3>
+                                    <span>2 months ago</span>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>Excellent service. They diagnosed and fixed an issue that two other shops couldn't figure out.</p>
+                            </div>
+                        </div>
+
+                        <div class="view-all">
+                            <a href="reviews.html?provider=1" class="btn btn-outline">View All Reviews</a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div class="provider-sidebar">
+                    <!-- Map -->
+                    <section class="card">
+                        <h2>Location</h2>
+                        <div id="map" class="provider-map"></div>
+                        <p class="location-address">123 Main St, San Francisco, CA 94105</p>
+                    </section>
+
+                    <!-- Business Hours -->
+                    <section class="card">
+                        <div class="hours-header">
+                            <i class="fas fa-clock"></i>
+                            <h2>Business Hours</h2>
+                        </div>
+                        <div class="business-hours">
+                            <div class="hours-row">
+                                <span>Monday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Tuesday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Wednesday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Thursday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Friday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rudzz Auto</h3>
+                    <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Customers</h3>
+                    <ul>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                        <li><a href="safety-tips.html">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Service Providers</h3>
+                    <ul>
+                        <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                        <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/provider-profile.js"></script>
+</body>
+</html>
+

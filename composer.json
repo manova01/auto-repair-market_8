@@ -1,0 +1,37 @@
+{
+  "name": "rudzz/auto-repair-marketplace",
+  "description": "Rudzz Auto Repair Marketplace - Connect with trusted auto repair professionals",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "twilio/sdk": "^6.37",
+    "google/apiclient": "^2.12",
+    "facebook/graph-sdk": "^5.7",
+    "vlucas/phpdotenv": "^5.4",
+    "phpmailer/phpmailer": "^6.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "squizlabs/php_codesniffer": "^3.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rudzz\\": "api/config/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Rudzz\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "cs": "phpcs",
+    "cs-fix": "phpcbf"
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
+

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="providers.html">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="user-menu">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <a href="notifications.html">View All</a>
+                            </div>
+                            <div class="notification-list">
+                                <a href="booking.html?id=123" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Your appointment with Mike's Auto Repair has been confirmed.</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </a>
+                                <a href="messages.html" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>You have a new message from AutoFix Pro.</p>
+                                        <span class="notification-time">Yesterday</span>
+                                    </div>
+                                </a>
+                                <a href="reviews.html" class="notification-item unread">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Quick Auto Service has responded to your review.</p>
+                                        <span class="notification-time">2 days ago</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="messages">
+                        <a href="messages.html" class="message-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="message-badge">2</span>
+                        </a>
+                    </div>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn">
+                            <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="dashboard.html" class="dropdown-item active">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="bookings.html" class="dropdown-item">
+                                <i class="fas fa-calendar"></i> My Bookings
+                            </a>
+                            <a href="favorites.html" class="dropdown-item">
+                                <i class="fas fa-heart"></i> Favorites
+                            </a>
+                            <a href="reviews.html" class="dropdown-item">
+                                <i class="fas fa-star"></i> My Reviews
+                            </a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="logout.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <div class="dashboard-sidebar">
+                <div class="user-info">
+                    <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                    <h3>John Doe</h3>
+                    <p>Customer</p>
+                </div>
+                <nav class="dashboard-nav">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html" class="active">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="bookings.html">
+                                <i class="fas fa-calendar"></i>
+                                <span>My Bookings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="messages.html">
+                                <i class="fas fa-envelope"></i>
+                                <span>Messages</span>
+                                <span class="badge">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="favorites.html">
+                                <i class="fas fa-heart"></i>
+                                <span>Favorites</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <i class="fas fa-star"></i>
+                                <span>My Reviews</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="settings.html">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="logout.html">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="dashboard-content">
+                <div class="dashboard-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back, John!</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>5</h3>
+                            <p>Total Bookings</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>12</h3>
+                            <p>Messages</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>Favorites</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>4</h3>
+                            <p>Reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Appointments -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Upcoming Appointments</h2>
+                        <a href="bookings.html" class="view-all">View All</a>
+                    </div>
+                    <div class="appointments-list">
+                        <div class="appointment-card">
+                            <div class="appointment-header">
+                                <div class="provider-info">
+                                    <img src="images/provider1.jpg" alt="Mike's Auto Repair">
+                                    <div>
+                                        <h3>Mike's Auto Repair</h3>
+                                        <p>Oil Change</p>
+                                    </div>
+                                </div>
+                                <div class="appointment-status confirmed">
+                                    Confirmed
+                                </div>
+                            </div>
+                            <div class="appointment-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>May 15, 2023</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10:30 AM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>123 Main St, San Francisco, CA</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <a href="booking-details.html?id=123" class="btn btn-outline btn-sm">View Details</a>
+                                <a href="messages.html?provider=1" class="btn btn-primary btn-sm">Message</a>
+                            </div>
+                        </div>
+
+                        <div class="appointment-card">
+                            <div class="appointment-header">
+                                <div class="provider-info">
+                                    <img src="images/provider2.jpg" alt="AutoFix Pro">
+                                    <div>
+                                        <h3>AutoFix Pro</h3>
+                                        <p>Brake Service</p>
+                                    </div>
+                                </div>
+                                <div class="appointment-status pending">
+                                    Pending
+                                </div>
+                            </div>
+                            <div class="appointment-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>May 22, 2023</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>2:00 PM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>456 Oak St, San Francisco, CA</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <a href="booking-details.html?id=124" class="btn btn-outline btn-sm">View Details</a>
+                                <a href="messages.html?provider=2" class="btn btn-primary btn-sm">Message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Messages -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Recent Messages</h2>
+                        <a href="messages.html" class="view-all">View All</a>
+                    </div>
+                    <div class="messages-list">
+                        <a href="messages.html?conversation=1" class="message-card unread">
+                            <div class="message-sender">
+                                <img src="images/provider1.jpg" alt="Mike's Auto Repair">
+                                <div>
+                                    <h3>Mike's Auto Repair</h3>
+                                    <span class="message-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <p class="message-preview">Your appointment for oil change has been confirmed for May 15th at 10:30 AM. Please let us know if you need to reschedule.</p>
+                        </a>
+
+                        <a href="messages.html?conversation=2" class="message-card unread">
+                            <div class="message-sender">
+                                <img src="images/provider2.jpg" alt="AutoFix Pro">
+                                <div>
+                                    <h3>AutoFix Pro</h3>
+                                    <span class="message-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <p class="message-preview">Thank you for scheduling a brake service with us. We've received your request and will confirm your appointment soon.</p>
+                        </a>
+
+                        <a href="messages.html?conversation=3" class="message-card">
+                            <div class="message-sender">
+                                <img src="images/provider3.jpg" alt="Quick Auto Service">
+                                <div>
+                                    <h3>Quick Auto Service</h3>
+                                    <span class="message-time">3 days ago</span>
+                                </div>
+                            </div>
+                            <p class="message-preview">Thank you for your review! We appreciate your feedback and look forward to serving you again in the future.</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Reviews -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Recent Reviews</h2>
+                        <a href="reviews.html" class="view-all">View All</a>
+                    </div>
+                    <div class="reviews-list">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="provider-info">
+                                    <img src="images/provider3.jpg" alt="Quick Auto Service">
+                                    <div>
+                                        <h3>Quick Auto Service</h3>
+                                        <div class="review-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>5.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">April 28, 2023</span>
+                            </div>
+                            <p class="review-content">Great service! They fixed my car quickly and at a reasonable price. Would definitely recommend.</p>
+                            <div class="review-actions">
+                                <a href="reviews.html?id=1" class="btn btn-outline btn-sm">Edit Review</a>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="provider-info">
+                                    <img src="images/provider1.jpg" alt="Mike's Auto Repair">
+                                    <div>
+                                        <h3>Mike's Auto Repair</h3>
+                                        <div class="review-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <span>4.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">March 15, 2023</span>
+                            </div>
+                            <p class="review-content">Good service overall. The oil change was done properly, but I had to wait longer than expected.</p>
+                            <div class="review-actions">
+                                <a href="reviews.html?id=2" class="btn btn-outline btn-sm">Edit Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+

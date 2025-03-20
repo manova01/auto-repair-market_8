@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Registration - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="providers.html">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Register as a Service Provider</h1>
+                <p>Join our network of trusted auto repair professionals</p>
+            </div>
+
+            <div class="multi-step-form-container">
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Basic Info</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Business Details</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Services</div>
+                    </div>
+                    <div class="progress-connector"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Verification</div>
+                    </div>
+                </div>
+
+                <!-- Form Steps -->
+                <div class="form-steps">
+                    <!-- Step 1: Basic Info -->
+                    <div class="form-step active" data-step="1">
+                        <h2>Basic Information</h2>
+                        <p>Let's start with your personal information</p>
+
+                        <div class="form-group">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" id="first-name" name="first_name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" id="last-name" name="last_name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="password" name="password" class="form-control" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <div class="password-input">
+                                <input type="password" id="confirm-password" name="confirm_password" class="form-control" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary next-step">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Business Details -->
+                    <div class="form-step" data-step="2">
+                        <h2>Business Details</h2>
+                        <p>Tell us about your auto repair business</p>
+
+                        <div class="form-group">
+                            <label for="business-name" class="form-label">Business Name</label>
+                            <input type="text" id="business-name" name="business_name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business-description" class="form-label">Business Description</label>
+                            <textarea id="business-description" name="business_description" class="form-control" rows="4" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business-address" class="form-label">Street Address</label>
+                            <input type="text" id="business-address" name="business_address" class="form-control" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="business-city" class="form-label">City</label>
+                                <input type="text" id="business-city" name="business_city" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="business-state" class="form-label">State</label>
+                                <input type="text" id="business-state" name="business_state" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="business-zip" class="form-label">ZIP Code</label>
+                                <input type="text" id="business-zip" name="business_zip" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="business-country" class="form-label">Country</label>
+                                <select id="business-country" name="business_country" class="form-control" required>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="MX">Mexico</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business-website" class="form-label">Website (Optional)</label>
+                            <input type="url" id="business-website" name="business_website" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Business Hours</label>
+                            <div class="business-hours-inputs">
+                                <div class="hours-row">
+                                    <span>Monday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="monday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="monday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Tuesday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="tuesday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="tuesday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Wednesday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="wednesday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="wednesday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Thursday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="thursday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="thursday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Friday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="friday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="friday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Saturday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="saturday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="saturday_close" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hours-row">
+                                    <span>Sunday</span>
+                                    <div class="hours-inputs">
+                                        <input type="time" name="sunday_open" class="form-control">
+                                        <span>to</span>
+                                        <input type="time" name="sunday_close" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Services -->
+                    <div class="form-step" data-step="3">
+                        <h2>Services Offered</h2>
+                        <p>Select the services you provide and set your pricing</p>
+
+                        <div class="form-group">
+                            <label class="form-label">Service Categories</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="engine">
+                                    Engine Repair
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="brakes">
+                                    Brake Service
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="oil">
+                                    Oil Change
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="tires">
+                                    Tire Service
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="electrical">
+                                    Auto Electrical
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="body">
+                                    Body Work
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="ac">
+                                    AC Service
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="service_categories[]" value="diagnostics">
+                                    Diagnostics
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Specific Services</label>
+                            <p class="form-hint">Add specific services you offer with pricing</p>
+
+                            <div id="services-container">
+                                <div class="service-item">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Service Name</label>
+                                            <input type="text" name="service_name[]" class="form-control" placeholder="e.g. Oil Change">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Price Range</label>
+                                            <div class="price-range">
+                                                <span>$</span>
+                                                <input type="number" name="service_price_min[]" class="form-control" placeholder="Min">
+                                                <span>-</span>
+                                                <input type="number" name="service_price_max[]" class="form-control" placeholder="Max">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Description (Optional)</label>
+                                        <textarea name="service_description[]" class="form-control" rows="2" placeholder="Brief description of the service"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" id="add-service" class="btn btn-outline btn-sm">
+                                <i class="fas fa-plus"></i> Add Another Service
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Features</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features[]" value="warranty">
+                                    Warranty Offered
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features[]" value="emergency">
+                                    Emergency Service
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features[]" value="pickup">
+                                    Pickup/Dropoff
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="features[]" value="financing">
+                                    Financing Options
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Verification -->
+                    <div class="form-step" data-step="4">
+                        <h2>Verification</h2>
+                        <p>Please provide documents to verify your business</p>
+
+                        <div class="form-group">
+                            <label for="business-license" class="form-label">Business License</label>
+                            <div class="file-upload">
+                                <input type="file" id="business-license" name="business_license" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                                <label for="business-license" class="file-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Choose File</span>
+                                </label>
+                                <div class="file-info">No file chosen</div>
+                            </div>
+                            <p class="form-hint">Upload a copy of your business license (PDF, JPG, PNG)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id-proof" class="form-label">ID Proof</label>
+                            <div class="file-upload">
+                                <input type="file" id="id-proof" name="id_proof" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                                <label for="id-proof" class="file-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Choose File</span>
+                                </label>
+                                <div class="file-info">No file chosen</div>
+                            </div>
+                            <p class="form-hint">Upload a government-issued ID (PDF, JPG, PNG)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="certification" class="form-label">Professional Certification (Optional)</label>
+                            <div class="file-upload">
+                                <input type="file" id="certification" name="certification" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                                <label for="certification" class="file-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Choose File</span>
+                                </label>
+                                <div class="file-info">No file chosen</div>
+                            </div>
+                            <p class="form-hint">Upload any professional certifications (PDF, JPG, PNG)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profile-photo" class="form-label">Profile Photo</label>
+                            <div class="file-upload">
+                                <input type="file" id="profile-photo" name="profile_photo" class="file-input" accept=".jpg,.jpeg,.png">
+                                <label for="profile-photo" class="file-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Choose File</span>
+                                </label>
+                                <div class="file-info">No file chosen</div>
+                            </div>
+                            <p class="form-hint">Upload a professional photo for your profile (JPG, PNG)</p>
+                        </div>
+
+                        <div class="form-group form-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" name="terms" id="terms" required>
+                                I agree to the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline prev-step">Back</button>
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rudzz Auto</h3>
+                    <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Customers</h3>
+                    <ul>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                        <li><a href="safety-tips.html">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Service Providers</h3>
+                    <ul>
+                        <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                        <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/provider-signup.js"></script>
+</body>
+</html>
+

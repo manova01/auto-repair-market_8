@@ -1,0 +1,31 @@
+# Environment variables and configuration
+.env
+config.local.php
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Logs
+/logs/
+*.log
+
+# User uploaded content
+/uploads/*
+!/uploads/.gitkeep
+
+# Cache files
+.sass-cache/
+*.css.map
+*.js.map
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+

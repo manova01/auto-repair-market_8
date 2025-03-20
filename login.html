@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> 
+
+```html file="login.html"
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Rudzz Auto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .auth-tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .auth-tab.active {
+      border-bottom: 2px solid #4a6cf7;
+      color: #4a6cf7;
+      font-weight: 600;
+    }
+    
+    .auth-tab-content {
+      display: none;
+    }
+    
+    .auth-tab-content.active {
+      display: block;
+    }
+    
+    .phone-input-container {
+      display: flex;
+    }
+    
+    .phone-input-container input {
+      flex: 1;
+    }
+    
+    .phone-input-container button {
+      margin-left: 10px;
+    }
+    
+    .code-input-container {
+      display: none;
+      margin-top: 15px;
+    }
+    
+    .otp-input {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .otp-input input {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    
+    .resend-code {
+      font-size: 0.9rem;
+      color: #4a6cf7;
+      cursor: pointer;
+      text-align: center;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+      <div class="container">
+          <div class="header-content">
+              <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+              <nav class="main-nav">
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="listings.html">Find Services</a></li>
+                      <li><a href="providers.html">Service Providers</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                  </ul>
+              </nav>
+              <div class="auth-buttons">
+                  <a href="login.html" class="btn btn-outline active">Log In</a>
+                  <a href="signup.html" class="btn btn-primary">Sign Up</a>
+              </div>
+              <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                  <i class="fas fa-bars"></i>
+              </button>
+          </div>
+      </div>
+  </header>
+
+  <main>
+      <div class="container">
+          <div class="auth-container">
+              <div class="auth-card">
+                  <div class="auth-header">
+                      <h1>Log In</h1>
+                      <p>Welcome back! Please log in to your account.</p>
+                  </div>
+
+                  <div class="auth-tabs">
+                      <div class="auth-tab active" data-tab="email">Email</div>
+                      <div class="auth-tab" data-tab="phone">Phone</div>
+                  </div>
+
+                  &lt;!-- Email Login Tab -->
+                  <div class="auth-tab-content active" id="email-tab">
+                      <form id="email-login-form" class="auth-form">
+                          <div class="form-group">
+                              <label for="email" class="form-label">Email</label>
+                              <input type="email" id="email" name="email" class="form-control" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="password" class="form-label">Password</label>
+                              <div class="password-input">
+                                  <input type="password" id="password" name="password" class="form-control" required>
+                                  <button type="button" class="password-toggle">
+                                      <i class="fas fa-eye"></i>
+                                  </button>
+                              </div>
+                          </div>
+
+                          <div class="form-group form-checkbox">
+                              <label class="checkbox">
+                                  <input type="checkbox" name="remember" id="remember">
+                                  Remember me
+                              </label>
+                              <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                      </form>
+                  </div>
+
+                  &lt;!-- Phone Login Tab -->
+                  <div class="auth-tab-content" id="phone-tab">
+                      <form id="phone-login-form" class="auth-form">
+                          <div class="form-group">
+                              <label for="phone" class="form-label">Phone Number</label>
+                              <div class="phone-input-container">
+                                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 234 567 8900" required>
+                                  <button type="button" id="send-code-btn" class="btn btn-outline">Get Code</button>
+                              </div>
+                          </div>
+
+                          <div id="code-container" class="code-input-container">
+                              <label class="form-label">Enter Verification Code</label>
+                              <div class="otp-input">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="0">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="1">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="2">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="3">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="4">
+                                  <input type="text" maxlength="1" class="form-control otp-box" data-index="5">
+                              </div>
+                              <input type="hidden" id="verification-code" name="code">
+                              <div class="resend-code" id="resend-code">Resend code in <span id="countdown">60</span>s</div>
+                              <button type="submit" class="btn btn-primary btn-block">Verify & Log In</button>
+                          </div>
+                      </form>
+                  </div>
+
+                  <div class="auth-divider">
+                      <span>or</span>
+                  </div>
+
+                  <div class="social-auth">
+                      <button id="google-login" class="btn btn-outline social-btn">
+                          <i class="fab fa-google"></i>
+                          Continue with Google
+                      </button>
+                      <button id="facebook-login" class="btn btn-outline social-btn">
+                          <i class="fab fa-facebook-f"></i>
+                          Continue with Facebook
+                      </button>
+                  </div>
+
+                  <div class="auth-footer">
+                      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
+
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <h3>Rudzz Auto</h3>
+                  <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              <div class="footer-section">
+                  <h3>For Customers</h3>
+                  <ul>
+                      <li><a href="listings.html">Find Services</a></li>
+                      <li><a href="how-it-works.html">How It Works</a></li>
+                      <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                      <li><a href="safety-tips.html">Safety Tips</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>For Service Providers</h3>
+                  <ul>
+                      <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                      <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                      <li><a href="success-stories.html">Success Stories</a></li>
+                      <li><a href="resources.html">Resources</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Company</h3>
+                  <ul>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="careers.html">Careers</a></li>
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                      <li><a href="terms-of-service.html">Terms of Service</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

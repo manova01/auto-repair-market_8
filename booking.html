@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="providers.html">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="user-menu">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="messages">
+                        <a href="messages.html" class="message-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="message-badge">2</span>
+                        </a>
+                    </div>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn">
+                            <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Book an Appointment</h1>
+                <p>Schedule a service with Mike's Auto Repair</p>
+            </div>
+
+            <div class="booking-container">
+                <!-- Provider Info -->
+                <div class="booking-provider-info">
+                    <div class="provider-card">
+                        <div class="provider-card-image">
+                            <img src="images/provider1.jpg" alt="Mike's Auto Repair">
+                        </div>
+                        <div class="provider-card-content">
+                            <div class="provider-card-header">
+                                <h3>Mike's Auto Repair</h3>
+                                <i class="fas fa-check-circle verified-badge"></i>
+                            </div>
+                            <div class="provider-card-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.8 (124 reviews)</span>
+                            </div>
+                            <div class="provider-card-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Main St, San Francisco, CA 94105</span>
+                            </div>
+                            <div class="provider-card-services">
+                                <span class="service-tag">Engine Repair</span>
+                                <span class="service-tag">Brake Service</span>
+                                <span class="service-tag">Oil Change</span>
+                            </div>
+                            <div class="provider-card-footer">
+                                <a href="provider-profile.html?id=1" class="btn btn-outline btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="business-hours-card">
+                        <h3>Business Hours</h3>
+                        <div class="business-hours">
+                            <div class="hours-row">
+                                <span>Monday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Tuesday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Wednesday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Thursday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Friday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-row">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="booking-form-container">
+                    <form id="booking-form" class="booking-form">
+                        <div class="form-section">
+                            <h2>Service Details</h2>
+                            
+                            <div class="form-group">
+                                <label for="service-type" class="form-label">Service Type</label>
+                                <select id="service-type" name="service_type" class="form-control" required>
+                                    <option value="">Select a service</option>
+                                    <option value="oil-change">Oil Change ($40-$80)</option>
+                                    <option value="brake-service">Brake Service ($80-$250)</option>
+                                    <option value="engine-repair">Engine Repair ($150-$500)</option>
+                                    <option value="tire-replacement">Tire Replacement ($60-$200 per tire)</option>
+                                    <option value="wheel-alignment">Wheel Alignment ($80-$120)</option>
+                                    <option value="ac-service">AC Service ($100-$300)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service-description" class="form-label">Describe the issue (Optional)</label>
+                                <textarea id="service-description" name="service_description" class="form-control" rows="3" placeholder="Please provide details about your vehicle issue..."></textarea>
+                  placeholder="Please provide details about your vehicle issue..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vehicle-make" class="form-label">Vehicle Make</label>
+                                <input type="text" id="vehicle-make" name="vehicle_make" class="form-control" placeholder="e.g. Toyota" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vehicle-model" class="form-label">Vehicle Model</label>
+                                <input type="text" id="vehicle-model" name="vehicle_model" class="form-control" placeholder="e.g. Camry" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vehicle-year" class="form-label">Vehicle Year</label>
+                                <input type="number" id="vehicle-year" name="vehicle_year" class="form-control" placeholder="e.g. 2018" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Appointment Date & Time</h2>
+                            
+                            <div class="form-group">
+                                <label for="appointment-date" class="form-label">Preferred Date</label>
+                                <input type="date" id="appointment-date" name="appointment_date" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="appointment-time" class="form-label">Preferred Time</label>
+                                <select id="appointment-time" name="appointment_time" class="form-control" required>
+                                    <option value="">Select a time</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group form-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="flexible_time" id="flexible-time">
+                                    I'm flexible with the time
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Contact Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" value="John Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" value="john.doe@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" value="(555) 123-4567" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additional-notes" class="form-label">Additional Notes (Optional)</label>
+                                <textarea id="additional-notes" name="additional_notes" class="form-control" rows="3" placeholder="Any special requests or information..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block">Book Appointment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rudzz Auto</h3>
+                    <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Customers</h3>
+                    <ul>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                        <li><a href="safety-tips.html">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Service Providers</h3>
+                    <ul>
+                        <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                        <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
+
+Now, let's create the booking confirmation page:
+
+```html file="booking-confirmation.html"
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Rudzz Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Rudzz<span>Auto</span></a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="providers.html">Service Providers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="user-menu">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="messages">
+                        <a href="messages.html" class="message-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="message-badge">2</span>
+                        </a>
+                    </div>
+                    <div class="user-dropdown">
+                        <button class="user-dropdown-btn">
+                            <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                            <span class="user-name">John Doe</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-card">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1>Booking Confirmed!</h1>
+                    <p>Your appointment has been successfully scheduled.</p>
+                    
+                    <div class="confirmation-details">
+                        <div class="confirmation-section">
+                            <h2>Appointment Details</h2>
+                            <div class="detail-row">
+                                <span class="detail-label">Booking ID:</span>
+                                <span class="detail-value">BK12345</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Service:</span>
+                                <span class="detail-value">Oil Change</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Date:</span>
+                                <span class="detail-value">May 15, 2023</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Time:</span>
+                                <span class="detail-value">10:30 AM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="confirmation-section">
+                            <h2>Provider Information</h2>
+                            <div class="provider-info">
+                                <img src="images/provider1.jpg" alt="Mike's Auto Repair" class="provider-thumbnail">
+                                <div>
+                                    <h3>Mike's Auto Repair</h3>
+                                    <p><i class="fas fa-map-marker-alt"></i> 123 Main St, San Francisco, CA 94105</p>
+                                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="confirmation-section">
+                            <h2>Vehicle Information</h2>
+                            <div class="detail-row">
+                                <span class="detail-label">Make:</span>
+                                <span class="detail-value">Toyota</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Model:</span>
+                                <span class="detail-value">Camry</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Year:</span>
+                                <span class="detail-value">2018</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-note">
+                        <p><i class="fas fa-info-circle"></i> A confirmation email has been sent to john.doe@example.com</p>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+                        <a href="bookings.html" class="btn btn-outline">View All Bookings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rudzz Auto</h3>
+                    <p>Connecting car owners with trusted auto repair professionals since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>For Customers</h3>
+                    <ul>
+                        <li><a href="listings.html">Find Services</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="customer-reviews.html">Customer Reviews</a></li>
+                        <li><a href="safety-tips.html">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Service Providers</h3>
+                    <ul>
+                        <li><a href="signup.html?type=provider">Join as Provider</a></li>
+                        <li><a href="provider-guidelines.html">Provider Guidelines</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Rudzz Auto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

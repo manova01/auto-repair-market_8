@@ -1,0 +1,106 @@
+name: Rudzz CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: rudzz_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+          extensions: mbstring, intl, pdo_mysql, zip, curl
+          coverage: xdebug
+
+      - name: Validate Composer Configuration
+        run: composer validate --strict
+
+      - name: Cache Composer Dependencies
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Initialize Test Database
+        run: |
+          mysql -h127.0.0.1 -uroot -proot rudzz_test < database.sql || true
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: rudzz_test
+
+      - name: Execute Test Suite
+        run: vendor/bin/phpunit
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: rudzz_test
+
+  deploy:
+    name: Deploy to Server
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+          extensions: mbstring, intl, pdo_mysql, zip, curl
+
+      - name: Install Production Dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
+
+      - name: Prepare Deployment Package
+        run: |
+          mkdir -p deployment
+          rsync -av --exclude='tests/' --exclude='.github/' --exclude='vendor/' . deployment/
+          cp -r vendor deployment/
+
+
+      - name: Deploy to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.CPANEL_FTP_SERVER }}
+          username: ${{ secrets.CPANEL_FTP_USERNAME }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: ./deployment/
+          server-dir: ${{ secrets.CPANEL_SERVER_DIR }}
+          dangerous-clean-slate: true
